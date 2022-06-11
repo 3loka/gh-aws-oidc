@@ -34,7 +34,7 @@ $  gh aws-oidc -R myorg/myrepo -e myenvironment
 
 ```
 
-![Demo](https://github.com/3loka/gh-aws-oidc/blob/main/aws-oidc.gif)
+![Demo](https://github.com/3loka/gh-aws-oidc/blob/main/demo.gif)
 
 # To run this application, execute below command
 - Install the CLI extension - Follow the steps here https://github.com/cli/cli#installation
