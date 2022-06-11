@@ -1,0 +1,185 @@
+# The configurations that used for the recording, feel free to edit them
+config:
+
+  # Specify a command to be executed
+  # like `/bin/bash -l`, `ls`, or any other commands
+  # the default is bash for Linux
+  # or powershell.exe for Windows
+  command: bash -l
+  
+  # Specify the current working directory path
+  # the default is the current working directory path
+  cwd: /Users/3loka/projects/gh-aws-oidc
+  
+  # Export additional ENV variables
+  env:
+    recording: true
+  
+  # Explicitly set the number of columns
+  # or use `auto` to take the current
+  # number of columns of your shell
+  cols: 251
+  
+  # Explicitly set the number of rows
+  # or use `auto` to take the current
+  # number of rows of your shell
+  rows: 68
+  
+  # Amount of times to repeat GIF
+  # If value is -1, play once
+  # If value is 0, loop indefinitely
+  # If value is a positive number, loop n times
+  repeat: 0
+  
+  # Quality
+  # 1 - 100
+  quality: 100
+  
+  # Delay between frames in ms
+  # If the value is `auto` use the actual recording delays
+  frameDelay: auto
+  
+  # Maximum delay between frames in ms
+  # Ignored if the `frameDelay` isn't set to `auto`
+  # Set to `auto` to prevent limiting the max idle time
+  maxIdleTime: 2000
+  
+  # The surrounding frame box
+  # The `type` can be null, window, floating, or solid`
+  # To hide the title use the value null
+  # Don't forget to add a backgroundColor style with a null as type
+  frameBox:
+    type: floating
+    title: Terminalizer
+    style:
+      border: 0px black solid
+      # boxShadow: none
+      # margin: 0px
+  
+  # Add a watermark image to the rendered gif
+  # You need to specify an absolute path for
+  # the image on your machine or a URL, and you can also
+  # add your own CSS styles
+  watermark:
+    imagePath: null
+    style:
+      position: absolute
+      right: 15px
+      bottom: 15px
+      width: 100px
+      opacity: 0.9
+  
+  # Cursor style can be one of
+  # `block`, `underline`, or `bar`
+  cursorStyle: block
+  
+  # Font family
+  # You can use any font that is installed on your machine
+  # in CSS-like syntax
+  fontFamily: "Monaco, Lucida Console, Ubuntu Mono, Monospace"
+  
+  # The size of the font
+  fontSize: 12
+  
+  # The height of lines
+  lineHeight: 1
+  
+  # The spacing between letters
+  letterSpacing: 0
+  
+  # Theme
+  theme:
+    background: "transparent"
+    foreground: "#afafaf"
+    cursor: "#c7c7c7"
+    black: "#232628"
+    red: "#fc4384"
+    green: "#b3e33b"
+    yellow: "#ffa727"
+    blue: "#75dff2"
+    magenta: "#ae89fe"
+    cyan: "#708387"
+    white: "#d5d5d0"
+    brightBlack: "#626566"
+    brightRed: "#ff7fac"
+    brightGreen: "#c8ed71"
+    brightYellow: "#ebdf86"
+    brightBlue: "#75dff2"
+    brightMagenta: "#ae89fe"
+    brightCyan: "#b1c6ca"
+    brightWhite: "#f9f9f4"
+  
+# Records, feel free to edit them
+records:
+  - delay: 672
+    content: "ln: /usr/local/bin/atom: File exists\r\n\r\nThe default interactive shell is now zsh.\r\nTo update your account to use zsh, please run `chsh -s /bin/zsh`.\r\nFor more details, please visit https://support.apple.com/kb/HT208050.\r\n\e[?1034h\e[31m3loka@Triloks-MacBook-Pro:~/projects/gh-aws-oidc\e[0m "
+  - delay: 3488
+    content: g
+  - delay: 139
+    content: h
+  - delay: 147
+    content: ' '
+  - delay: 146
+    content: a
+  - delay: 186
+    content: w
+  - delay: 231
+    content: s
+  - delay: 465
+    content: '-'
+  - delay: 297
+    content: o
+  - delay: 50
+    content: i
+  - delay: 110
+    content: d
+  - delay: 195
+    content: c
+  - delay: 171
+    content: "\r\n"
+  - delay: 974
+    content: "Setting up AWS Connection for 3loka/gh-aws-oidc\r\n\r\n\e[?25l\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m █\r\n\e[J\e[2K\r \b"
+  - delay: 2351
+    content: "\e[J\e[2K\ro\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m o█\r\no\e[J\e[2K\r \b"
+  - delay: 48
+    content: "\e[J\e[2K\ri\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oi█\r\ni\e[J\e[2K\r \b"
+  - delay: 100
+    content: "\e[J\e[2K\rd\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oid█\r\nd\e[J\e[2K\r \b"
+  - delay: 200
+    content: "\e[J\e[2K\rc\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc█\r\nc\e[J\e[2K\r \b"
+  - delay: 542
+    content: "\e[J\e[2K\r-\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-█\r\n-\e[J\e[2K\r \b"
+  - delay: 458
+    content: "\e[J\e[2K\rr\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-r█\r\nr\e[J\e[2K\r \b"
+  - delay: 114
+    content: "\e[J\e[2K\ro\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-ro█\r\no\e[J\e[2K\r \b"
+  - delay: 195
+    content: "\e[J\e[2K\rl\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-rol█\r\nl\e[J\e[2K\r \b"
+  - delay: 110
+    content: "\e[J\e[2K\re\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-role█\r\ne\e[J\e[2K\r \b"
+  - delay: 656
+    content: "\e[J\e[2K\r-\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-role-█\r\n-\e[J\e[2K\r \b"
+  - delay: 1334
+    content: "\e[J\e[2K\rn\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-role-n█\r\nn\e[J\e[2K\r \b"
+  - delay: 75
+    content: "\e[J\e[2K\re\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-role-ne█\r\ne\e[J\e[2K\r \b"
+  - delay: 72
+    content: "\e[J\e[2K\rw\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-role-new█\r\nw\e[J\e[2K\r \b"
+  - delay: 232
+    content: "\e[J\e[2K\r \b\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-role-new█\r\n\e[1A\e[2K\r\e[2K\r\e[1mEnter the Role Name, Default: gh-oidc-role-3loka-gh-aws-oidc\e[0m oidc-role-new\r\n\e[?25h"
+  - delay: 56
+    content: "Creating AWS Resources\r\n"
+  - delay: 1291
+    content: "IDP Already exists, Adding audience if its not added already\r\n"
+  - delay: 734
+    content: "Created Role With ARN arn:aws:iam::490822338300:role/oidc-role-new\r\n\e[?25l\e[2K\r\e[32mEnter the Policy ARN, Default: arn:aws:iam::aws:policy/AmazonS3FullAccess \e[0m █\r\n\e[J\e[2K\r \b"
+  - delay: 1018
+    content: "\e[J\e[2K\r \b\e[J\e[2K\r\e[1A\e[2K\r\e[2K\r\e[32mEnter the Policy ARN, Default: arn:aws:iam::aws:policy/AmazonS3FullAccess \e[0m █\r\n\e[1A\e[2K\r\e[2K\r\e[1mEnter the Policy ARN, Default: arn:aws:iam::aws:policy/AmazonS3FullAccess \e[0m \r\n\e[?25h"
+  - delay: 252
+    content: "Attached Role With a Role Policy\r\nAll AWS Resources Created Succesfully !\r\n\r\nNow Updating your Repository secrets\r\n"
+  - delay: 785
+    content: "Repository Updated Succesfully !\r\n\r\nSuccefully connected to AWS. You can now start executing your Actions Workflows !\r\n"
+  - delay: 1006
+    content: "\e[31m3loka@Triloks-MacBook-Pro:~/projects/gh-aws-oidc\e[0m "
+  - delay: 1804
+    content: "logout\r\n"
