@@ -1,8 +1,8 @@
 # gh-aws-oidc
-This is a Github CLI extension to setup a federated OIDC based connection between a repository, organization or an environment and AWs Services. 
+This is a Github CLI extension to setup a federated OIDC based connection between a repository, organization or an environment and AWS Services. 
 
 ## Usage instructions
-Note: Before you run the CLI, run `aws configure`. You will need the Access Key combinations to connect initially to AWS. aws configure will create a config file under ~/.aws/config. Once you complete this CLI, you can remove the AWS credentials by deleting the folder
+Note: Before you run the CLI, run `[aws configure](https://docs.aws.amazon.com/cli/latest/reference/configure/)`. You will need the Access Key combinations to connect initially to AWS. aws configure will create a config file under ~/.aws/config. Once you complete this CLI, you can remove the AWS credentials by deleting the folder
 ```
 gh aws-oidc [flags]
 
