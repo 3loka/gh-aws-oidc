@@ -1,0 +1,18 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+      {
+        "Effect": "Allow",
+        "Principal": {
+          "Federated": "OIDCPROVIDER"
+        },
+        "Action": "sts:AssumeRoleWithWebIdentity",
+        "Condition": {
+          "StringEquals": {
+            "vstoken.actions.githubusercontent.com:aud": "AUDREPO",
+            "vstoken.actions.githubusercontent.com:sub": "repo:AUDIENCE:ref:refs/heads/main"
+          }
+        }
+      }
+    ]
+  }
