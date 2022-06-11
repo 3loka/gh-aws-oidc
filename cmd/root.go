@@ -150,16 +150,17 @@ func runSetup(orgrepo string, env string, orgFlag string, useDefaults string) {
 	}
 	split := strings.Split(repoName, "/")
 	roleNameContent := promptContent{
-		fmt.Sprintf("Enter the Role Name (Default is gh-oidc-role-%v-%v) ", split[0], split[1]),
-		fmt.Sprintf("Enter the Role Name (Default is gh-oidc-role-%v-%v) ", split[0], split[1]),
+		fmt.Sprintf("Enter the Role Name, Default: gh-oidc-role-%v-%v", split[0], split[1]),
+		fmt.Sprintf("Enter the Role Name, Default: gh-oidc-role-%v-%v", split[0], split[1]),
+		// fmt.Sprintf("gh-oidc-role-%v-%v", split[0], split[1]),
 	}
 
 	roleNameToCreate := promptGetInput(roleNameContent)
 	if roleNameToCreate == "" {
-		roleNameToCreate = fmt.Sprintf("gh-oidc-role-%v-%v) ", split[0], split[1])
+		roleNameToCreate = fmt.Sprintf("gh-oidc-role-%v-%v", split[0], split[1])
 	}
 
-	thumbPrint := getFingerPrint(fmt.Sprintf(actionsURL + "443"))
+	thumbPrint := getFingerPrint(fmt.Sprintf(actionsURL + ":443"))
 
 	// Initialize a session in us-west-2 that the SDK will use to load
 	// credentials from the shared credentials file ~/.aws/credentials.
@@ -167,8 +168,8 @@ func runSetup(orgrepo string, env string, orgFlag string, useDefaults string) {
 		Region: aws.String("us-west-2")},
 	)
 
+	// fmt.Println()
 	fmt.Println("Creating AWS Resources")
-	fmt.Println()
 
 	// Create a IAM service client.
 	svc := iam.New(sess)
@@ -220,7 +221,7 @@ func runSetup(orgrepo string, env string, orgFlag string, useDefaults string) {
 
 	rolePolicyDoc := string(b) // convert content to a 'string'
 
-	fmt.Println(rolePolicyDoc) // print the content as a 'string'
+	// fmt.Println(rolePolicyDoc) // print the content as a 'string'
 	rolePolicyDoc = strings.ReplaceAll(rolePolicyDoc, "OIDCPROVIDER", oidcIDPARNString)
 	rolePolicyDoc = strings.ReplaceAll(rolePolicyDoc, "AUDREPO", repoPrefix+"/"+repoName)
 	rolePolicyDoc = strings.ReplaceAll(rolePolicyDoc, "AUDIENCE", repoName)
@@ -255,22 +256,35 @@ func runSetup(orgrepo string, env string, orgFlag string, useDefaults string) {
 		roleArnValue := createRoleOutput.Role.Arn
 		roleArn = *roleArnValue
 		fmt.Println("Created Role With ARN", roleArn)
-		attachRoleRequest := iam.AttachRolePolicyInput{
-			PolicyArn: &roleArn,
-			RoleName:  &roleNameToCreate,
-		}
-
-		//Attach role policy
-		_, err1 := svc.AttachRolePolicy(&attachRoleRequest)
-		if err1 != nil {
-			fmt.Println("Error while attaching role policy", err1)
-			return
-		}
-		fmt.Println("Attached Role With a Role Policy")
 
 		// fmt.Println(attachRoleOutput)
 
 	}
+
+	policyARNContent := promptContent{
+		fmt.Sprintf("Enter the Policy ARN, Default: arn:aws:iam::aws:policy/AmazonS3FullAccess "),
+		fmt.Sprintf("Enter the Policy ARN, Default: arn:aws:iam::aws:policy/AmazonS3FullAccess "),
+	}
+
+	policyARN := promptGetInput(policyARNContent)
+
+	if policyARN == "" {
+		policyARN = fmt.Sprintf("arn:aws:iam::aws:policy/AmazonS3FullAccess")
+	}
+
+	attachRoleRequest := iam.AttachRolePolicyInput{
+		PolicyArn: &policyARN,
+		RoleName:  &roleNameToCreate,
+	}
+
+	//Attach role policy
+	// fmt.Println(attachRoleRequest)
+	_, err1 := svc.AttachRolePolicy(&attachRoleRequest)
+	if err1 != nil {
+		fmt.Println("Error while attaching role policy", err1)
+		return
+	}
+	fmt.Println("Attached Role With a Role Policy")
 
 	fmt.Println("All AWS Resources Created Succesfully !")
 	fmt.Println()
@@ -281,7 +295,7 @@ func runSetup(orgrepo string, env string, orgFlag string, useDefaults string) {
 	fmt.Println("Repository Updated Succesfully !")
 	fmt.Println()
 	fmt.Println("Succefully connected to AWS. You can now start executing your Actions Workflows !")
-	time.Sleep(2 * time.Second)
+	time.Sleep(1 * time.Second)
 
 }
 
@@ -306,15 +320,16 @@ func createSecret(name string, value string, orgrepo string, orgFlag string, env
 type promptContent struct {
 	errorMsg string
 	label    string
+	// def      string
 }
 
 func promptGetInput(pc promptContent) string {
-	validate := func(input string) error {
-		if len(input) <= 0 {
-			return errors.New(pc.errorMsg)
-		}
-		return nil
-	}
+	// validate := func(input string) error {
+	// 	if len(input) <= 0 {
+	// 		return errors.New(pc.errorMsg)
+	// 	}
+	// 	return nil
+	// }
 
 	templates := &promptui.PromptTemplates{
 		Prompt:  "{{ . }} ",
@@ -326,7 +341,8 @@ func promptGetInput(pc promptContent) string {
 	prompt := promptui.Prompt{
 		Label:     pc.label,
 		Templates: templates,
-		Validate:  validate,
+		// Validate:  validate,
+		// Default:   pc.def,
 	}
 
 	result, err := prompt.Run()
